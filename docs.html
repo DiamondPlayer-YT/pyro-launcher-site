@@ -3,47 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pyro Launcher Docs</title>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Main CSS -->
+  <title>Docs • Pyro Launcher</title>
+
+  <link rel="icon" href="res/images/pyro-32.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
+<div id="loader">
+  <object data="res/images/pyro-flame-p-animated.svg" type="image/svg+xml"></object>
+  <span>Loading Docs...</span>
+</div>
+
+<div id="content">
   <nav>
     <div class="logo">PYRO</div>
     <div class="nav-links">
       <a href="index.html">Home</a>
+      <a href="download.html">Download</a>
       <a href="docs.html" class="active">Docs</a>
     </div>
   </nav>
 
-  <!-- Docs Section -->
-  <section class="docs">
-    <div class="doc-item">
-      <h3>Installation</h3>
-      <p>Download Pyro Launcher, sign in, and launch Minecraft seamlessly.</p>
-    </div>
+  <section class="page docs">
+    <h2>Installing Pyro Launcher (Windows)</h2>
 
-    <div class="doc-item">
-      <h3>Mod Support</h3>
-      <p>Pyro supports both Fabric and Forge profiles with full compatibility.</p>
-    </div>
+    <ol>
+      <li>
+        <strong>Download Pyro</strong><br>
+        Go to the <a href="download.html">Download page</a> and download the Windows installer.
+      </li>
 
-    <div class="doc-item">
-      <h3>Auto-Update</h3>
-      <p>The launcher automatically checks for updates and keeps Minecraft versions up-to-date.</p>
-    </div>
+      <li>
+        <strong>Run the Installer</strong><br>
+        Open the downloaded <code>.exe</code> file. If Windows SmartScreen appears, click
+        <em>More info → Run anyway</em>.
+      </li>
 
-    <div class="doc-item">
-      <h3>Customization</h3>
-      <p>Easily switch themes, adjust memory allocation, and configure Java settings.</p>
-    </div>
+      <li>
+        <strong>Sign In</strong><br>
+        Launch Pyro and sign in with your Microsoft account.
+      </li>
+
+      <li>
+        <strong>Launch Minecraft</strong><br>
+        Select a version, click <strong>Play</strong>, and you’re good to go 🔥
+      </li>
+    </ol>
   </section>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>

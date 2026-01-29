@@ -1,146 +1,96 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
+body {
   background: #050505;
-  font-family: 'Inter', sans-serif;
-  color: #fff;
+  color: white;
 }
 
 /* Loader */
 #loader {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  inset: 0;
+  background: #050505;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #050505;
-  z-index: 9999;
+  gap: 20px;
+  z-index: 999;
 }
 
-#loader-text {
-  margin-top: 20px;
-  font-size: 1.5rem;
+#loader span {
   color: #ff2a00;
   letter-spacing: 2px;
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* Main Content */
+/* Content */
 #content {
   display: none;
 }
 
+/* Navbar */
 nav {
-  background: #1a0000;
-  padding: 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #140000;
 }
 
-nav a {
+.logo {
+  font-weight: 800;
   color: #ff2a00;
-  margin: 0 1rem;
-  text-decoration: none;
-  font-weight: 600;
+  letter-spacing: 3px;
 }
 
-.hero {
-  padding: 2rem;
+.nav-links a {
+  margin-left: 1.5rem;
+  color: #ff2a00;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+/* Pages */
+.hero, .page {
+  padding: 4rem 2rem;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
-.hero p {
-  color: #ff4a2a;
-  font-size: 1.2rem;
-  margin: 1rem 0 2rem 0;
-}
-
-/* Download Button */
-#download-btn {
-  background: linear-gradient(45deg, #ff2a00, #ff8c2a);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  color: #fff;
+.btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(45deg, #ff2a00, #ff7a18);
+  border-radius: 10px;
+  color: black;
   font-weight: 700;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px #ff2a00;
-}
-
-#download-btn:hover {
-  box-shadow: 0 0 25px #ff8c2a, 0 0 40px #ff2a00;
-  transform: scale(1.05);
-}
-
-/* Navbar updates for docs */
-nav {
-  background: #1a0000;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav .logo {
-  color: #ff2a00;
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-nav .nav-links a {
-  color: #ff2a00;
-  margin-left: 1.5rem;
   text-decoration: none;
-  font-weight: 600;
-  position: relative;
+  box-shadow: 0 0 30px #ff2a00;
 }
 
-nav .nav-links a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #ff2a00;
-  border-radius: 2px;
+.btn.big {
+  font-size: 1.2rem;
 }
 
-/* Docs section */
-.docs {
-  max-width: 900px;
-  margin: 100px auto 50px;
-  padding: 0 2rem;
-  display: grid;
-  gap: 2rem;
+/* Docs */
+.docs ol {
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: left;
 }
 
-.doc-item h3 {
-  font-size: 1.8rem;
-  color: #ff2a00;
-  margin-bottom: 0.5rem;
-}
-
-.doc-item p {
-  font-size: 1.1rem;
+.docs li {
+  margin-bottom: 1.5rem;
   line-height: 1.6;
-  color: #fff;
 }

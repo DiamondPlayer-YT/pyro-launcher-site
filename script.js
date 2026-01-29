@@ -1,38 +1,23 @@
-// Loader functionality
+// Loader
 window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("content");
-  loader.classList.add("fade-out");
-
   setTimeout(() => {
-    loader.style.display = "none";
-    content.style.display = "block";
-  }, 500);
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }, 600);
 });
 
-// Auto-detect download button
-const downloadBtn = document.getElementById("download-btn");
-const userAgent = navigator.userAgent;
+// Download auto-detect
+const btn = document.getElementById("download-btn");
+if (btn) {
+  const ua = navigator.userAgent;
 
-if (/Windows/.test(userAgent)) {
-  downloadBtn.innerText = "Download for Windows";
-} else if (/Mac/.test(userAgent)) {
-  downloadBtn.innerText = "Download for macOS";
-} else if (/Linux/.test(userAgent)) {
-  downloadBtn.innerText = "Download for Linux";
-} else {
-  downloadBtn.innerText = "Download Launcher";
-}
-
-// Click handler for download
-downloadBtn.addEventListener("click", () => {
-  if (/Windows/.test(userAgent)) {
-    window.location.href = "res/images/pyro-launcher-windows.exe";
-  } else if (/Mac/.test(userAgent)) {
-    window.location.href = "res/images/pyro-launcher-mac.dmg";
-  } else if (/Linux/.test(userAgent)) {
-    window.location.href = "res/images/pyro-launcher-linux.AppImage";
+  if (ua.includes("Windows")) {
+    btn.textContent = "Download for Windows";
+    btn.onclick = () => {
+      location.href = "res/images/pyro-launcher-windows.exe";
+    };
   } else {
-    alert("No compatible launcher detected.");
+    btn.textContent = "Download (Coming Soon)";
+    btn.disabled = true;
   }
-});
+}
