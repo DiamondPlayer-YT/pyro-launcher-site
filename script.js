@@ -1,23 +1,29 @@
-// Loader
+// LOADER (works on ALL pages)
 window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("content").style.display = "block";
-  }, 600);
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+
+  if (loader && content) {
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 600);
+  }
 });
 
-// Download auto-detect
-const btn = document.getElementById("download-btn");
-if (btn) {
+// DOWNLOAD AUTO-DETECT (only if button exists)
+const downloadBtn = document.getElementById("download-btn");
+
+if (downloadBtn) {
   const ua = navigator.userAgent;
 
   if (ua.includes("Windows")) {
-    btn.textContent = "Download for Windows";
-    btn.onclick = () => {
-      location.href = "res/images/pyro-launcher-windows.exe";
+    downloadBtn.textContent = "Download for Windows";
+    downloadBtn.onclick = () => {
+      window.location.href = "res/images/pyro-launcher-windows.exe";
     };
   } else {
-    btn.textContent = "Download (Coming Soon)";
-    btn.disabled = true;
+    downloadBtn.textContent = "Download (Coming Soon)";
+    downloadBtn.disabled = true;
   }
 }
