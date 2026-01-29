@@ -1,149 +1,146 @@
-:root {
-  --red: #ff2a2a;
-  --dark: #080808;
-  --dark-soft: #111;
-  --text: #eaeaea;
-}
-
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
 }
 
-body {
-  background: var(--dark);
-  color: var(--text);
-}
-
-/* NAVBAR */
-
-.navbar {
-  position: fixed;
-  top: 0;
+body, html {
   width: 100%;
-  padding: 18px 8%;
+  height: 100%;
+  background: #050505;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  z-index: 10;
+  background: #050505;
+  z-index: 9999;
 }
 
-.logo {
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--red);
+#loader-text {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #ff2a00;
+  letter-spacing: 2px;
 }
 
-.nav-links a {
-  margin-left: 30px;
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Main Content */
+#content {
+  display: none;
+}
+
+nav {
+  background: #1a0000;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #ff2a00;
+  margin: 0 1rem;
   text-decoration: none;
-  color: var(--text);
-  opacity: 0.85;
+  font-weight: 600;
 }
-
-.nav-links a:hover {
-  opacity: 1;
-  color: var(--red);
-}
-
-/* HERO */
 
 .hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #000, #160000);
-  position: relative;
-  overflow: hidden;
-}
-
-.glow {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255,42,42,0.35), transparent 70%);
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  letter-spacing: 4px;
+  font-size: 3rem;
 }
 
 .hero p {
-  margin: 20px 0 40px;
-  opacity: 0.85;
+  color: #ff4a2a;
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem 0;
 }
 
-/* BUTTONS */
-
-.btn {
-  padding: 14px 36px;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
+/* Download Button */
+#download-btn {
+  background: linear-gradient(45deg, #ff2a00, #ff8c2a);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #ff2a00;
 }
 
-.primary {
-  background: var(--red);
-  color: #000;
-  box-shadow: 0 0 25px rgba(255,42,42,0.5);
+#download-btn:hover {
+  box-shadow: 0 0 25px #ff8c2a, 0 0 40px #ff2a00;
+  transform: scale(1.05);
 }
 
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 45px rgba(255,42,42,0.9);
+/* Navbar updates for docs */
+nav {
+  background: #1a0000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* FEATURES */
+nav .logo {
+  color: #ff2a00;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
 
-.features {
-  padding: 100px 10%;
-  background: var(--dark-soft);
+nav .nav-links a {
+  color: #ff2a00;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav .nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ff2a00;
+  border-radius: 2px;
+}
+
+/* Docs section */
+.docs {
+  max-width: 900px;
+  margin: 100px auto 50px;
+  padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  gap: 2rem;
 }
 
-.feature h3 {
-  color: var(--red);
-  margin-bottom: 10px;
+.doc-item h3 {
+  font-size: 1.8rem;
+  color: #ff2a00;
+  margin-bottom: 0.5rem;
 }
 
-.feature p {
-  opacity: 0.85;
-}
-
-/* FOOTER */
-
-footer {
-  padding: 30px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.6;
+.doc-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
 }

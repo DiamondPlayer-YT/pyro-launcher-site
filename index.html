@@ -1,55 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pyro Launcher</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="res/images/pyro-32.png">
 
-  <!-- Clean modern font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>PYRO LAUNCHER</h1>
-      <p>Fast. Minimal. Uncompromising.</p>
-      <a href="#download" class="btn primary">Download</a>
-    </div>
-  </header>
+  <!-- Loader -->
+  <div id="loader">
+    <object type="image/svg+xml" data="pyro-flame-p-animated.svg" id="animated-flame"></object>
+    <div id="loader-text">Loading Pyro Launcher...</div>
+  </div>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Performance First</h3>
-      <p>Optimized launch times with minimal overhead.</p>
-    </div>
-    <div class="feature">
-      <h3>Mod Ready</h3>
-      <p>Fabric & Forge support without the clutter.</p>
-    </div>
-    <div class="feature">
-      <h3>Clean UI</h3>
-      <p>No bloat. No noise. Just Minecraft.</p>
-    </div>
-  </section>
+  <!-- Main content -->
+  <div id="content">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Docs</a>
+    </nav>
 
-  <section id="download" class="download">
-    <h2>Get Pyro</h2>
-    <div class="buttons">
-      <a class="btn outline" href="#">Windows</a>
-      <a class="btn outline" href="#">macOS</a>
-      <a class="btn outline" href="#">Linux</a>
-    </div>
-  </section>
+    <section class="hero">
+      <h1>Welcome to Pyro Launcher</h1>
+      <p>The ultimate Minecraft launcher with firepower.</p>
 
-  <footer>
-    <p>© 2026 Pyro Launcher</p>
-  </footer>
+      <!-- Download Button -->
+      <button id="download-btn">Download Launcher</button>
+    </section>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>

@@ -1,32 +1,38 @@
+// Loader functionality
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+  loader.classList.add("fade-out");
+
+  setTimeout(() => {
+    loader.style.display = "none";
+    content.style.display = "block";
+  }, 500);
+});
+
+// Auto-detect download button
 const downloadBtn = document.getElementById("download-btn");
+const userAgent = navigator.userAgent;
 
-const downloads = {
-  windows: "https://example.com/pyro-windows.exe",
-  mac: "https://example.com/pyro-macos.dmg",
-  linux: "https://example.com/pyro-linux.AppImage"
-};
-
-function detectOS() {
-  const userAgent = navigator.userAgent.toLowerCase();
-
-  if (userAgent.includes("win")) {
-    return { os: "Windows", url: downloads.windows };
-  }
-  if (userAgent.includes("mac")) {
-    return { os: "macOS", url: downloads.mac };
-  }
-  if (userAgent.includes("linux")) {
-    return { os: "Linux", url: downloads.linux };
-  }
-  return null;
-}
-
-const result = detectOS();
-
-if (result) {
-  downloadBtn.textContent = `Download for ${result.os}`;
-  downloadBtn.href = result.url;
+if (/Windows/.test(userAgent)) {
+  downloadBtn.innerText = "Download for Windows";
+} else if (/Mac/.test(userAgent)) {
+  downloadBtn.innerText = "Download for macOS";
+} else if (/Linux/.test(userAgent)) {
+  downloadBtn.innerText = "Download for Linux";
 } else {
-  downloadBtn.textContent = "Download";
-  downloadBtn.href = "#";
+  downloadBtn.innerText = "Download Launcher";
 }
+
+// Click handler for download
+downloadBtn.addEventListener("click", () => {
+  if (/Windows/.test(userAgent)) {
+    window.location.href = "res/images/pyro-launcher-windows.exe";
+  } else if (/Mac/.test(userAgent)) {
+    window.location.href = "res/images/pyro-launcher-mac.dmg";
+  } else if (/Linux/.test(userAgent)) {
+    window.location.href = "res/images/pyro-launcher-linux.AppImage";
+  } else {
+    alert("No compatible launcher detected.");
+  }
+});

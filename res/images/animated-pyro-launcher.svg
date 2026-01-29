@@ -1,0 +1,39 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Flame gradient -->
+    <linearGradient id="flameGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff8c2a"></stop>
+      <stop offset="40%" stop-color="#ff2a00"></stop>
+      <stop offset="70%" stop-color="#800000"></stop>
+      <stop offset="100%" stop-color="#330000"></stop>
+    </linearGradient>
+
+    <!-- P gradient -->
+    <linearGradient id="pGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0000"></stop>
+      <stop offset="100%" stop-color="#550000"></stop>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Animated flame shape -->
+  <path id="flame" fill="url(#flameGradient)" filter="url(#glow)">
+    <animate attributeName="d" dur="2s" repeatCount="indefinite" values="
+        M256 40 C200 100 180 180 210 260 C170 300 180 360 250 420 C280 380 300 330 320 360 C360 300 330 200 256 40 Z;
+        M256 40 C200 110 185 185 215 255 C175 310 185 365 250 420 C280 390 305 325 320 355 C360 290 335 210 256 40 Z;
+        M256 40 C195 100 175 180 210 265 C175 305 185 365 250 420 C285 380 300 330 320 360 C355 300 330 200 256 40 Z;
+        M256 40 C200 100 180 180 210 260 C170 300 180 360 250 420 C280 380 300 330 320 360 C360 300 330 200 256 40 Z
+      "></animate>
+  </path>
+
+  <!-- Centered P -->
+  <text x="256" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="180" fill="url(#pGradient)">P</text>
+</svg>
